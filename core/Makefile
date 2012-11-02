@@ -1285,9 +1285,10 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS) $(SEL
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
 bacon: otapackage
 ifneq ($(TARGET_CUSTOM_RELEASETOOL),)
-	@echo -e ${CL_MAG}"Running releasetool"${CL_RST}
+	@echo "Running custom releasetool..."
 	$(hide) $(TARGET_CUSTOM_RELEASETOOL)
 else
+	@echo "Running releasetool..."
 	$(hide) ./vendor/aokp/tools/squisher
 endif
 
